@@ -47,7 +47,7 @@ app.get("/projects", async (req, res) => {
 
 
 // API REVIEWS
-app.get("/reviews", async (req, res) => {
+app.get("/getreviews", async (req, res) => {
   try {
     const reviews = await Review.find(); // Haal alle records op
     res.json(reviews);
@@ -58,7 +58,7 @@ app.get("/reviews", async (req, res) => {
 
 
 // API REVIEWS - Nieuwe review toevoegen
-app.post("/reviews", async (req, res) => {
+app.post("/postreviews", async (req, res) => {
   try {
     const { reviewtext } = req.body;
 
