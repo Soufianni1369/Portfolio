@@ -64,18 +64,18 @@ app.post("/postreviews", async (req, res) => {
 
     // Controleer of de vereiste data aanwezig is
     if (!reviewtext) {
-      return res.status(400).json({ message: "❌ Reviewtekst is verplicht!" });
+      return res.status(400).json({ message: "Reviewtekst is verplicht!" });
     }
 
-    // Nieuwe review aanmake
+    // Nieuwe review aanmaken
     const newReview = new Review({ reviewtext });
 
     // Opslaan in de database
     await newReview.save();
 
-    res.status(201).json({ message: "✅ Review toegevoegd!", review: newReview });
+    res.status(201).json({ message: "Review toegevoegd!", review: newReview });
   } catch (error) {
-    res.status(500).json({ message: "❌ Fout bij toevoegen van review", error });
+    res.status(500).json({ message: "Fout bij toevoegen van review", error });
   }
 });
 
