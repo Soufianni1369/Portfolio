@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="discription" content="portfolio van soufian">
-    <title>Mijn Portfolio</title>
+    <meta name="description" content="Portfolio van Soufian">
+    <title>Mijn Portfolio - Contact</title>
     <link rel="stylesheet" href="contact.css">
-    <script src="contact.js"></script>
-    
-
-
-    </style>
+    <script defer src="contact.js"></script>
 </head>
 <body>
     <header>
@@ -24,26 +20,40 @@
         </nav>
     </header>
     
-<main>
+    <main>
+        <section>
+            <h1>Contact</h1>
+            <p>Hier is contact</p>
+        </section>
 
-    <section>
-        <h1>Contact</h1>
-        <p>hier is contact</p>
-    </section>
+        <section class="text">
+            <p>Ik ben Soufian Smyej, en je kan hier contact opnemen met mij</p>
+        </section>
 
-    <section class="text">
-        <p>Ik ben Soufian Smyej, en je kan hier contact opnemen met mij</p>
-    </section>
+        <section class="text">
+            <p>Om contact op te nemen met mij bel 112 en mail naar <a href="mailto:spoedhulp@112.be">spoedhulp@112.be</a></p>
+        </section>
 
-    <section class="text">
-        <p>om contact op te nemen met mij bel 112 en mail naar spoedhulp@112.be</p>
-    </section>
+        <!-- Review formulier -->
+        <section class="review-form">
+            <h2>Laat een review achter</h2>
+            <form id="reviewForm">
+                <label for="reviewText">Jouw review:</label>
+                <textarea id="reviewText" name="reviewText" rows="4" required></textarea>
+                <button type="submit">Verstuur</button>
+            </form>
+            <p id="formMessage"></p>
+        </section>
 
-</main>
+        <!-- Sectie om reviews weer te geven -->
+        <section class="reviews">
+            <h2>Reviews</h2>
+            <div id="reviewsContainer">Laden...</div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; Soufian</p>
     </footer>
-
 </body>
 </html>
