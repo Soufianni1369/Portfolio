@@ -67,7 +67,7 @@ app.post("/postreviews", async (req, res) => {
       return res.status(400).json({ message: "❌ Reviewtekst is verplicht!" });
     }
 
-    // Nieuwe review aanmaken
+    // Nieuwe review aanmake
     const newReview = new Review({ reviewtext });
 
     // Opslaan in de database
