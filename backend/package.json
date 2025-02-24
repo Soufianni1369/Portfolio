@@ -1,0 +1,12 @@
+{
+    "name": "backend",
+    "version": "6.9.420",
+    "dependencies": {
+      "express": "^4.18.0",
+      "mongoose": "^6.3.0",
+      "cors": "^2.8.5"
+    },
+    "scripts": {
+      "start": "node server.js"
+    }
+  }
