@@ -1,5 +1,0 @@
-use db1
-
-db.projects.insertOne({naam: 'Media Server', projecttext: 'Ik heb mijn eigen mediaserver gemaakt met Jellyfin en de Arr-stack (Sonarr, Radarr, Lidarr, en Prowlarr). Jellyfin zorgt voor de streaming, terwijl Sonarr en Radarr automatisch tv-series en films downloaden. Lidarr beheert mijn muziek en Prowlarr verbindt alles met torrentindexers. Zo heb ik een geautomatiseerd systeem dat nieuwe media toevoegt en direct beschikbaar maakt voor streaming, zonder handmatig werk.'})
-
-db.skills.insertOne({naam: 'VMs', level: 8, category: 'Devops'}) 

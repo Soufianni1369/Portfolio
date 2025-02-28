@@ -47,7 +47,7 @@ app.get("/projects", async (req, res) => {
 
 
 // API REVIEWS
-app.get("/getreviews", async (req, res) => {
+app.get("/reviews", async (req, res) => {
   try {
     const reviews = await Review.find(); // Haal alle records op
     res.json(reviews);
