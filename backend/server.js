@@ -1,16 +1,18 @@
+//import alle requierments
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const Skill = require("./models/skill"); 
-const Project = require("./models/project"); 
+
+//import alle models
+const Skill = require("./models/skill");
+const Project = require("./models/project");
 const Review = require("./models/review");
 
+const app = express(); // Maak een Express-app
+app.use(cors()); 
+app.use(express.json()); // Sta JSON-verzoeken toe
 
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
+// Verbind met MongoDB
 mongoose.connect("mongodb://mongo:27017/db1", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -19,66 +21,51 @@ mongoose.connect("mongodb://mongo:27017/db1", {
 const db = mongoose.connection;
 db.once("open", () => console.log("MongoDB verbonden!"));
 
-// API TEST
-app.get("/api", (req, res) => {
-  console.log('testing')
-  res.json({ message: "Hallo vanaf de backend!" });
-});
 
-// API SKILLS
+// Skills api
 app.get("/skills", async (req, res) => {
   try {
-    const skills = await Skill.find(); // Haal alle records op
+    const skills = await Skill.find();
     res.json(skills);
   } catch (error) {
-    res.status(500).json({ message: "Fout bij ophalen van skills", error });
+    res.status(500).json({ message: "Fout bij ophalen van skills" });
   }
 });
 
-// API PROJECTS
+// Projecten api
 app.get("/projects", async (req, res) => {
   try {
-    const projects = await Project.find(); // Haal alle records op
+    const projects = await Project.find();
     res.json(projects);
   } catch (error) {
-    res.status(500).json({ message: "Fout bij ophalen van projects", error });
+    res.status(500).json({ message: "Fout bij ophalen van projecten" });
   }
 });
 
-
-// API REVIEWS
+// Reviews api
 app.get("/reviews", async (req, res) => {
   try {
-    const reviews = await Review.find(); // Haal alle records op
+    const reviews = await Review.find();
     res.json(reviews);
   } catch (error) {
-    res.status(500).json({ message: "Fout bij ophalen van reviews", error });
+    res.status(500).json({ message: "Fout bij ophalen van reviews" });
   }
 });
 
-
-// API REVIEWS - Nieuwe review toevoegen
+// Review post api
 app.post("/postreviews", async (req, res) => {
   try {
     const { reviewtext } = req.body;
+    if (!reviewtext) return res.status(400).json({ message: "Reviewtekst ontbreekt!" });
 
-    // Controleer of de vereiste data aanwezig is
-    if (!reviewtext) {
-      return res.status(400).json({ message: "Reviewtekst is verplicht!" });
-    }
-
-    // Nieuwe review aanmaken
     const newReview = new Review({ reviewtext });
-
-    // Opslaan in de database
     await newReview.save();
 
     res.status(201).json({ message: "Review toegevoegd!", review: newReview });
   } catch (error) {
-    res.status(500).json({ message: "Fout bij toevoegen van review", error });
+    res.status(500).json({ message: "Fout bij toevoegen van review" });
   }
 });
 
-
-
+// Start de server
 app.listen(5000, () => console.log("Server draait op poort 5000"));

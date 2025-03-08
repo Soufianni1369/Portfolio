@@ -5,3 +5,5 @@ db.projects.insertOne({naam: 'Media Server', projecttext: 'Ik heb mijn eigen med
 db.skills.insertMany([{naam: 'VMs', level: 8, category: 'Devops'}, {naam: 'Docker', level: 7, category: 'Devops'}]);
 
 db.projects.find();
+db.skills.find();
+db.reviews.find();
